@@ -1,0 +1,95 @@
+body {
+    background-color: #ffffff;
+}
+
+.pizza-info {
+    background-color: #212529;
+
+    border-radius: 1em;
+}
+
+.contacts {
+
+    background-color: #DEFF0A;
+    border-radius: 1em;
+    padding: 1em;
+    border: 2px solid #BE0AFF
+}
+
+.circleButton {
+    background-color: #adb5bd;
+    
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.sqButton {
+    background-color: #BE0AFF;
+    border: slategray solid 1px;
+    color: white;
+    border-radius: 2px;
+
+
+
+}table {
+    
+   width: 400px;
+   align-items: center;
+   justify-content: center;
+   margin-left: auto;
+   margin-right: auto;
+   
+}.Payments {
+
+    width: 30%;
+    height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 7px;
+    background-color: #a3b18a;
+    outline: none;
+    border: 2px solid #580aff;
+    justify-content: center;
+    text-align:center;
+}
+.buyButton {
+    background-color: #147df5;
+    color: white;
+    border: 2px solid #580aff;
+    width: 50%;
+    border-radius: 5px;
+    cursor: pointer;  
+    text-decoration: none;
+}
+.checkoutButton {
+    background-color: #147df5;
+    color: white;
+    border: 2px solid #580aff;
+    width: 30%;
+    height: 60%;
+    border-radius: 5px;
+    cursor: pointer;  
+
+}
+.hidden{
+    display: none;
+}
+
+.payButton{
+    
+    background-color:darkred;
+    color: white;
+    border: 2px solid #580aff;
+    width: 20%;
+    height: 60%;
+    border-radius: 5px;
+    cursor: pointer; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

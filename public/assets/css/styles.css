@@ -157,6 +157,32 @@ p {
   margin-bottom: 1rem;
 }
 
+table {
+  padding-top: 1.5em;
+  margin-left: 1.5em;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 25rem;
+  background-color: var(--clr-white);
+  box-shadow: 0 10px 60px #141619;
+  border: 2px solid var(--clr-light-blue);
+  border-radius: 24px;
+  padding: 2rem 1.875rem 2rem 1.875rem;
+  margin: 0.625rem;
+  text-align: center;
+  margin-left: 18em;
+  margin-top: 7em;
+  align-items: center;
+  color: var(--clr-light-gray)
+  }
+
+  .webcam-container {
+    width: 300em;
+    height: 150em;
+}
+
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;

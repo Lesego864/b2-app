@@ -1,0 +1,60 @@
+<link href="/public/assets/css/styles.css" rel="stylesheet" />
+
+
+<div id="layoutSidenav_content">
+    <main>
+        
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Biometric System ID </h1>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="wrapper">
+                    <h2>WebCam</h2>
+                    <button type="button" onclick="init()">Start</button>
+                    <div id="webcam-container"></div>
+                    <div id="label" class="label">
+                        <table>
+                            <tr>
+                                <td>Chicken: <progress id="chicken-progress" max="1"></progress><span
+                                    id="chicken"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Cow: <progress id="cow-progress" max="1"></progress><span id="cow"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Goat: <progress id="goat-progress" max="1"></progress><span id="goat"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Pig: <progress id="pig-progress" max="1"></progress><span id="pig"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Sheep: <progress id="sheep-progress" max="1"></progress><span id="sheep"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            
+                    <!-- End File Details -->
+                </div>
+                <!-- End Upload Area -->
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<!-- <script src="./predict.js"></script> -->
+<script src="/assets/js/predict.js" charset="utf-8"></script>

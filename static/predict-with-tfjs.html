@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DreamWeaver Inc. Biometric System</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>DreamWeaver Inc. Biometric System</h1>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Using WebCam</h2>
+                        <button type="button" onclick="init()">Start</button>
+                        <div id="webcam-container"></div>
+                        <div id="label" class="label">
+                            <table>
+                                <tr>
+                                    <td>Chicken: <progress id="chicken-progress" max="1"></progress><span
+                                        id="chicken"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Cow: <progress id="cow-progress" max="1"></progress><span id="cow"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Goat: <progress id="goat-progress" max="1"></progress><span id="goat"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pig: <progress id="pig-progress" max="1"></progress><span id="pig"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Sheep: <progress id="sheep-progress" max="1"></progress><span id="sheep"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <!-- Upload Area -->
+                    <div id="uploadArea" class="upload-area">
+                        <!-- Header -->
+                        <div class="upload-area__header">
+                            <h2 class="upload-area__title">Uploading your file</h2>
+                            <p class="upload-area__paragraph">
+                                File should be an image
+                                <strong class="upload-area__tooltip">
+                                    Like
+                                    <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                                </strong>
+                            </p>
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Drop Zoon -->
+                        <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+                            <span class="drop-zoon__icon">
+                                <i class='bx bxs-file-image'></i>
+                            </span>
+                            <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                            <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+                            <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image"
+                                draggable="false">
+                            <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                        </div>
+                        <!-- End Drop Zoon -->
+
+                        <!-- File Details -->
+                        <div id="fileDetails" class="upload-area__file-details file-details">
+                            <h3 class="file-details__title">Uploaded File</h3>
+
+                            <div id="uploadedFile" class="uploaded-file">
+                                <div class="uploaded-file__icon-container">
+                                    <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                    <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                                </div>
+
+                                <div id="uploadedFileInfo" class="uploaded-file__info">
+                                    <!-- <span class="uploaded-file__name">Proejct 1</span>
+                                    <span class="uploaded-file__counter">0%</span> -->
+                                    <table>
+                                        <tr>
+                                            <td>Chicken: <progress id="chicken-progress" max="1"></progress><span
+                                                id="chicken"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cow: <progress id="cow-progress" max="1"></progress><span id="cow"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Goat: <progress id="goat-progress" max="1"></progress><span id="goat"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pig: <progress id="pig-progress" max="1"></progress><span id="pig"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sheep: <progress id="sheep-progress" max="1"></progress><span id="sheep"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End File Details -->
+                    </div>
+                    <!-- End Upload Area -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script src="./predict.js"></script>
+
+</body>
+
+</html>
+
+</html>
