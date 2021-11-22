@@ -166,7 +166,7 @@ table {
   width: 100%;
   max-width: 25rem;
   background-color: var(--clr-white);
-  box-shadow: 0 10px 60px #141619;
+  box-shadow: 0 10px 60px rgb(218, 229, 255);
   border: 2px solid var(--clr-light-blue);
   border-radius: 24px;
   padding: 2rem 1.875rem 2rem 1.875rem;

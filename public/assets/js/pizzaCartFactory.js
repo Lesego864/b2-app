@@ -14,7 +14,7 @@ function PizzaCart(){
     }
    
     function buyLargePizza(){
-       theLargeTotal = 50.00
+       theLargeTotal = 80.00
     }
    
    function addSmallPizza(){

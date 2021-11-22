@@ -1,0 +1,35 @@
+<div id="layoutSidenav_content">
+  <main>
+
+    <div class="container-fluid px-4">
+      <h1 class="mt-4">Control</h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Panel</li>
+      </ol>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12 center">
+
+
+          </div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+  </ol>
+</nav>
+
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+<form class="row g-3 needs-validation" method="POST" action="/edituser/{{this.id}}" novalidate> 
+  {{> user-form}}
+</form>
+{{/each}}

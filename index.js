@@ -1,106 +1,63 @@
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
-
-const path = require('path');
+const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
-
-
-const homeRoutes = require('./routes/home-routes');
-
-const app = express();
-
-app.use(expressLayouts);
-app.set('view engine', 'ejs');
-app.use(express.static("./static"));
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(homeRoutes.routes)
-
-// app.listen(3000,() => console.log('App is listening on url http://localhost:3000'))
-app.listen(process.env.PORT || 3000);
-
-
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'node_crud'
-});
+require('dotenv').config();
 
-connection.connect(function(error) {
-    if (!!error) console.log(error);
-    else console.log('Database Connected!');
-});
+const app = express();
+const port = process.env.PORT || 3001;
 
-//set views file
-app.set('views', path.join(__dirname, 'views'));
+// Parsing middleware
+// Parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true })); // New
 
-//set view engine
-app.set('view engine', 'ejs');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// Parse application/json
+// app.use(bodyParser.json());
+app.use(express.json()); // New
 
+// Static Files
+app.use(express.static('public'));
 
+// Templating Engine
+app.engine('hbs', exphbs({ extname: '.hbs' }));
+app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
-    // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
-    let sql = "SELECT * FROM users";
-    let query = connection.query(sql, (err, rows) => {
-        if (err) throw err;
-        res.render('user_index', {
-            title: 'CRUD Operation using NodeJS / ExpressJS / MySQL',
-            users: rows
-        });
-    });
-});
+// Connection Pool
+// You don't need the connection here as we have it in userController
+// let connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: process.env.DB_NAME
+// });
 
 
-app.get('/add', (req, res) => {
-    res.render('user_add', {
-        title: 'CRUD Operation using NodeJS / ExpressJS / MySQL'
-    });
-});
-
-app.post('/save', (req, res) => {
-    let data = { name: req.body.name, email: req.body.email, phone_no: req.body.phone_no };
-    let sql = "INSERT INTO users SET ?";
-    let query = connection.query(sql, data, (err, results) => {
-        if (err) throw err;
-        res.redirect('/');
-    });
-});
-
-app.get('/edit/:userId', (req, res) => {
-    const userId = req.params.userId;
-    let sql = `Select * from users where id = ${userId}`;
-    let query = connection.query(sql, (err, result) => {
-        if (err) throw err;
-        res.render('user_edit', {
-            title: 'CRUD Operation using NodeJS / ExpressJS / MySQL',
-            user: result[0]
-        });
-    });
-});
 
 
-app.post('/update', (req, res) => {
-    const userId = req.body.id;
-    let sql = "update users SET name='" + req.body.name + "',  email='" + req.body.email + "',  phone_no='" + req.body.phone_no + "' where id =" + userId;
-    let query = connection.query(sql, (err, results) => {
-        if (err) throw err;
-        res.redirect('/');
-    });
-});
+
+const routes = require('./server/routes/user');
+app.use('/', routes);
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+// app.listen(process.env.PORT || 3000);
+
+// app.get('/', function (req, res) {
+//     res.render('dashboard');
+// });
 
 
-app.get('/delete/:userId', (req, res) => {
-    const userId = req.params.userId;
-    let sql = `DELETE from users where id = ${userId}`;
-    let query = connection.query(sql, (err, result) => {
-        if (err) throw err;
-        res.redirect('/');
-    });
-});
+// app.get('/control', function (req, res) {
+//     res.render('control-panel');
+// });
+
+// app.get('/biometric', function (req, res) {
+//     res.render('biometric');
+// });
+
+// app.get('/home', function (req, res) {
+//     res.render('home');
+// });
+
+// app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -1,0 +1,66 @@
+
+
+<div id="layoutSidenav_content">
+  <main>
+
+    <div class="container-fluid px-4">
+      <h1 class="mt-4">Control</h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Panel</li>
+      </ol>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12 center">
+
+
+          </div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+  </ol>
+</nav>
+  
+
+<div class="view-user p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.first_name}} {{this.last_name}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Livestock ID</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Health Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.first_name}}</th>
+            <td>{{this.last_name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>Addional Information</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
